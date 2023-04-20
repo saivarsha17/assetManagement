@@ -4,7 +4,7 @@ import { CreateMarket } from './createMarket.js';
 import { useState } from 'react';
 
 function App() {
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   return (
     <>
       {modal && (
