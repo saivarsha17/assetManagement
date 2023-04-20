@@ -1,38 +1,156 @@
-.App {
-  text-align: center;
-}
+@media screen and (min-width: 1200px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+    /* left: 129px;
+  top: 179px; */
+    min-height: 100vh;
+    overflow: hidden;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+    /* Dark/Background/Primary */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    background: #14172b;
+  }
+  .createLotContainer {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 24px;
+    gap: 24px;
+    position: relative;
+    left: 129px;
+    top: 179px;
+
+    width: 598px;
+    height: 380px;
+
+    /* Dark/Background/Secondary */
+
+    background: linear-gradient(
+      180deg,
+      rgba(98, 106, 136, 0.1) 0%,
+      rgba(46, 49, 73, 0.1) 100%
+    );
+    /* Dark/Greyscale/400 */
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 17px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  .textContainer {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    padding: 10px 16px;
+    /* gap: 6px; */
+
+    width: 116px;
+    /* height: 34px; */
+
+    /* Dark/Background/Primary */
+
+    background: #14172b;
+    border-radius: 10px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-family: 'Bai Jamjuree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(255, 255, 255, 0.9);
+
+    opacity: 0.9;
+  }
+  .questionMarkContainer {
+    /* position: absolute; */
+    width: 15px;
+    height: 15px;
+    /* left: 10px;
+  top: 7px; */
+  }
+  .questionMainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* position: fixed;
+  left: 140px;
+  top: 190px; */
+    /* border: 1.5px solid #56565a; */
+  }
+  .createLotButtonContainer {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding: 13px 24px; */
+
+    width: 550px;
+    height: 30px;
+
+    background: linear-gradient(175.25deg, #9e44ff 3.56%, #543eff 103.97%);
+    border-radius: 17px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+  }
+  .userLotContainer {
+    font-family: 'Tomorrow';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.025em;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .descriptionContainer {
+    font-family: 'Tomorrow';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* or 150% */
+
+    /* Dark/Greyscale/200 */
+
+    color: rgba(255, 255, 255, 0.7);
+
+    opacity: 0.8;
+  }
+  .imagesContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 10px;
+  }
+  .imageContainer {
+    width: 92px;
+    height: 66.05px;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media screen and (max-width: 1350px) {
+  .mainContainer {
+    display: none;
   }
 }

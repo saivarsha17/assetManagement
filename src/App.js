@@ -1,24 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import { IMAGES } from './images/asset';
+import { CreateMarket } from './createMarket.js';
+import { useState } from 'react';
 
 function App() {
+  const [modal, setModal] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {modal && (
+        <div>
+          <CreateMarket setModal={setModal} />
+        </div>
+      )}
+
+      {!modal && (
+        <div className="mainContainer">
+          <div className="createLotContainer">
+            <div className="questionMainContainer">
+              <div className="textContainer">Most Played</div>
+
+              <img
+                className="questionMarkContainer"
+                alt="questionMark"
+                src={IMAGES.QUESTION_MARK}
+              />
+            </div>
+            <div className="imagesContainer">
+              <img className="imageContainer" src={IMAGES.PEOPLE} alt="loop" />
+              <img alt="people" src={IMAGES.LOOP_MARK} />
+              <img
+                className="imageContainer"
+                alt="people"
+                src={IMAGES.PEOPLE}
+              />
+            </div>
+            <div className="userLotContainer">Multi-user Lot</div>
+            <div className="descriptionContainer">
+              In this lot multiple people will bet against you. The condition
+              for the lot to start is both sides should have equal funds.
+            </div>
+            <div
+              className="createLotButtonContainer"
+              onClick={() => setModal(true)}
+            >
+              Create Lot
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

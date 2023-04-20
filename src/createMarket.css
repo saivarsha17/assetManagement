@@ -1,0 +1,282 @@
+@media screen and (min-width: 1200px) {
+  .drawerContainer {
+    background: url('./images/Rectangle.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    width: 100%;
+    height: '100%';
+    overflow: hidden;
+  }
+  .assetContainer {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    padding: 24px;
+    gap: 24px;
+    isolation: isolate;
+
+    position: absolute;
+    width: 530px;
+    height: 800px;
+    left: 665px;
+    top: 0px;
+
+    background: linear-gradient(
+      180deg,
+      rgba(98, 106, 136, 0.1) 0%,
+      rgba(46, 49, 73, 0.1) 100%
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 17px;
+  }
+  .headingContainer {
+    font-family: 'Tomorrow';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .closeImageContainer {
+    width: 24px;
+    height: 24px;
+  }
+  .headingMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .tabIndexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .indexContainer {
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    /* background: linear-gradient(175.25deg, #9e44ff 3.56%, #543eff 103.97%); */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    text-align: center;
+  }
+  .subHeadingContainer {
+    font-family: 'Tomorrow';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-align: center;
+    letter-spacing: -0.025em;
+
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .searchContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 11px 40px 11px 16px;
+    gap: 12px;
+    background: #14172b;
+    backdrop-filter: blur(50px);
+    border-radius: 17px;
+
+    font-family: 'Tomorrow';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #56565a;
+  }
+  .drawerAssetContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+  }
+  .drawerAssetContainerHeading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 16px;
+    gap: 10px;
+
+    /* background: linear-gradient(
+    175.25deg,
+    rgba(158, 68, 255, 0.25) 3.56%,
+    rgba(84, 62, 255, 0.25) 103.97%
+  ); */
+    color: #56565a;
+    border-radius: 12px;
+
+    font-family: 'Bai Jamjuree';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    opacity: 0.9;
+  }
+  .drawerAssetContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .drawerAssetContainerName {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    gap: 10px;
+
+    width: 87px;
+    height: 76px;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-family: 'Tomorrow';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+
+    text-align: center;
+    text-transform: capitalize;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    opacity: 0.9;
+  }
+  .drawerAssetContainerImage {
+    background: #edf0f4;
+    border-radius: 50%;
+    min-width: 25px;
+    min-height: 25px;
+  }
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .buttonContainerBack {
+    padding: 13px 24px;
+    gap: 8px;
+    width: 180px;
+    max-width: 400px;
+    background: linear-gradient(175.25deg, #9e44ff 3.56%, #543eff 103.97%);
+    border-radius: 17px;
+
+    font-family: 'Bai Jamjuree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #ffffff;
+  }
+  .userAssetContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 16px;
+    gap: 23px;
+
+    width: 150px;
+    height: 124px;
+
+    background: #14172b;
+    border-radius: 10px;
+
+    font-family: 'Tomorrow';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+
+    text-align: center;
+    text-transform: capitalize;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    opacity: 0.9;
+  }
+  .userAssetMainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .userAssetImage {
+    width: 24px;
+    height: 24px;
+    padding: 16px;
+    border-radius: 50%;
+    border-color: 9e44ff;
+    min-width: 25px;
+    min-height: 25px;
+  }
+  .userAssetImageContainer {
+    border-radius: 50%;
+    border-color: #9e44ff;
+  }
+  .userAssetHeadingContainer {
+    font-family: 'Tomorrow';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+
+    text-align: center;
+    text-transform: capitalize;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    opacity: 0.9;
+  }
+  .userAssetImageUserContainer {
+    background: #edf0f4;
+    border-radius: 50%;
+    min-width: 30px;
+    min-height: 30px;
+  }
+
+  .fundYourPoolContainer {
+    display: flex;
+    flex-direction: row;
+
+    padding: 14px 16px;
+
+    background: #14172b;
+    border-radius: 17px;
+    font-family: 'Tomorrow';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    opacity: 0.9;
+  }
+}
+@media screen and (max-width: 1350px) {
+  .drawerContainer {
+    display: none;
+  }
+}
