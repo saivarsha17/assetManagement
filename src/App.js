@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 function App() {
   const [modal, setModal] = useState(false);
+
   return (
     <>
       {modal && (

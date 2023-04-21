@@ -3,89 +3,38 @@ import './createMarket.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { IMAGES } from './images/asset';
+import { drawerAssets, name, drawerNames, COLORS } from './constants';
 export const CreateMarket = (props) => {
   const setModal = props.setModal;
+  const [popup, setPopup] = useState(false);
+  const [popupText, setPopupText] = useState('');
   const [tabIndex, setTabIndex] = useState(0);
-  const [tabName, setTabName] = useState('Choose your Asset');
+
   const [assetIndex, setAssetIndex] = useState(-1);
-  const name = ['Choose your Asset', 'Choose Opposing Asset', 'Take Position'];
+
   const [drawerIndex, setDrawerIndex] = useState(0);
-  const drawerNames = ['Crypto', 'Indexes', ' Stocks', 'Commodities', 'Forex'];
-  const COLORS = ['#6F9246', '#9E44FF', '#14172B'];
-  const drawerAssets = [
-    'Ethereum',
-    'Avalanche',
-    'Cardano',
-    'Chainlink',
-    'Algorand',
-    'Ethereum',
-    'Avalanche',
-    'Cardano',
-    'Chainlink',
-    'Algorand',
-    'Ethereum',
-    'Avalanche',
-    'Cardano',
-    'Chainlink',
-    'Algorand',
-    'Ethereum',
-    'Avalanche',
-    'Cardano',
-    'Chainlink',
-    'Algorand',
-    'Ethereum',
-    'Avalanche',
-    'Cardano',
-    'Chainlink',
-    'Algorand',
-  ];
-  const drawerAssetsIcons = [
-    IMAGES.ETHEREUM,
-    IMAGES.AVALANCHE,
-    IMAGES.CARDANO,
-    IMAGES.CHAIN_LINK,
-    IMAGES.ALGORAND,
-    IMAGES.ETHEREUM,
-    IMAGES.AVALANCHE,
-    IMAGES.CARDANO,
-    IMAGES.CHAIN_LINK,
-    IMAGES.ALGORAND,
-    IMAGES.ETHEREUM,
-    IMAGES.AVALANCHE,
-    IMAGES.CARDANO,
-    IMAGES.CHAIN_LINK,
-    IMAGES.ALGORAND,
-    IMAGES.ETHEREUM,
-    IMAGES.AVALANCHE,
-    IMAGES.CARDANO,
-    IMAGES.CHAIN_LINK,
-    IMAGES.ALGORAND,
-    IMAGES.ETHEREUM,
-    IMAGES.AVALANCHE,
-    IMAGES.CARDANO,
-    IMAGES.CHAIN_LINK,
-    IMAGES.ALGORAND,
-  ];
+
   const [usersData, setUsersData] = useState({
     user1AssetName: '',
     user2AssetName: '',
     user1AssetImage: '',
     user2AssetImage: '',
   });
+  const [assetData, setassetData] = useState(drawerAssets);
   const handleAsset = (index) => {
     console.log('selected');
     if (tabIndex === 0) {
       setUsersData((prev) => ({
         ...prev,
-        user1AssetName: drawerAssets[index],
-        user1AssetImage: drawerAssetsIcons[index],
+        user1AssetName: assetData[index].name,
+        user1AssetImage: assetData[index].image,
       }));
     }
     if (tabIndex === 1) {
       setUsersData((prev) => ({
         ...prev,
-        user2AssetName: drawerAssets[index],
-        user2AssetImage: drawerAssetsIcons[index],
+        user2AssetName: assetData[index].name,
+        user2AssetImage: assetData[index].image,
       }));
     }
   };
@@ -100,11 +49,29 @@ export const CreateMarket = (props) => {
   const handleCreate = () => {
     if (selectedDate && selectedDateEnd && amount.length > 0) {
       setModal(false);
+    } else {
+      setPopup(true);
+      setPopupText('Fill all details before creating a lot');
+      setTimeout(() => setPopup(false), 2000);
     }
+  };
+  const handleSearch = (value) => {
+    const newData = [];
+    drawerAssets.forEach((data) => {
+      const name = data.name.toLowerCase();
+      const isPresent = name.includes(value);
+
+      if (isPresent) {
+        newData.push(data);
+      }
+    });
+
+    setassetData(newData);
   };
 
   return (
     <div className="drawerContainer">
+      {popup && <div className="popupContainer">{popupText}</div>}
       <div className="assetContainer">
         <div className="headingMain">
           <div className="headingContainer">Multi-user Lot</div>
@@ -147,6 +114,7 @@ export const CreateMarket = (props) => {
           <input
             className="searchContainer"
             placeholder="Search Token eg. ETH, Gold etc"
+            onChange={(e) => handleSearch(e.target.value)}
           />
         )}
         {tabIndex !== 2 && (
@@ -177,7 +145,7 @@ export const CreateMarket = (props) => {
         )}
         {tabIndex !== 2 && (
           <div className="drawerAssetContainer">
-            {drawerAssets.map((data, index) => {
+            {assetData.map((data, index) => {
               return (
                 <div
                   onClick={() => {
@@ -194,10 +162,10 @@ export const CreateMarket = (props) => {
                 >
                   <img
                     className="drawerAssetContainerImage"
-                    src={drawerAssetsIcons[index]}
+                    src={data.image}
                     alt="asset"
                   />
-                  <div>{data}</div>
+                  <div>{data.name}</div>
                 </div>
               );
             })}
@@ -232,7 +200,7 @@ export const CreateMarket = (props) => {
                   alt="user2Asset"
                 />
                 <div className="userAssetHeadingContainer">
-                  {usersData.user1AssetName}
+                  {usersData.user2AssetName}
                 </div>
               </div>
             </div>
@@ -279,7 +247,7 @@ export const CreateMarket = (props) => {
             >
               Lot Ends On
             </div>
-            {/* <input className="fundYourPoolContainer" /> */}
+
             <DatePicker
               selected={selectedDateEnd}
               onChange={(e) => {
@@ -289,6 +257,14 @@ export const CreateMarket = (props) => {
                   e instanceof Date
                 ) {
                   setSelectedDateEnd(e);
+                } else if (selectedDate === null) {
+                  setPopup(true);
+                  setPopupText('First Enter the Lot Start Date');
+                  setTimeout(() => setPopup(false), 2000);
+                } else {
+                  setPopup(true);
+                  setPopupText('Enter Date greater than Start Date');
+                  setTimeout(() => setPopup(false), 2000);
                 }
               }}
               dateFormat="dd/MM/yyyy"
@@ -302,10 +278,6 @@ export const CreateMarket = (props) => {
               dropdownMode="select"
               todayButton="Today"
             ></DatePicker>
-            {/* <DatePicker
-             
-             
-            /> */}
           </>
         )}
         <div className="buttonContainer">
@@ -328,6 +300,11 @@ export const CreateMarket = (props) => {
                 if (tabIndex < 2) {
                   if (assetIndex !== -1) {
                     setTabIndex((prev) => prev + 1);
+                    setAssetIndex(-1);
+                  } else {
+                    setPopup(true);
+                    setPopupText('Select an Asset before going forward');
+                    setTimeout(() => setPopup(false), 2000);
                   }
                 }
               }}
@@ -340,7 +317,6 @@ export const CreateMarket = (props) => {
               className="buttonContainerBack"
               onClick={() => {
                 handleCreate();
-                // setModal(false);
               }}
             >
               Create a Lot
