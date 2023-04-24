@@ -7,7 +7,8 @@ import CARDANO from './Cardano.png';
 import CHAIN_LINK from './Chainlink.png';
 import ETHEREUM from './Ethereum.png';
 import ALGORAND from './Algorand.png';
-import FRAME from './Frame.png';
+// import FRAME from './Frame.png';
+import FRAME from './Group 2739.png';
 export var IMAGES = {
   QUESTION_MARK,
   PEOPLE,

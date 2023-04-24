@@ -72,6 +72,7 @@ export const CreateMarket = (props) => {
   return (
     <div className="drawerContainer">
       {popup && <div className="popupContainer">{popupText}</div>}
+      <div className="lineContainer"></div>
       <div className="assetContainer">
         <div className="headingMain">
           <div className="headingContainer">Multi-user Lot</div>
@@ -144,7 +145,7 @@ export const CreateMarket = (props) => {
           </div>
         )}
         {tabIndex !== 2 && (
-          <div className="drawerAssetContainer">
+          <div className="drawerAssetContainer1">
             {assetData.map((data, index) => {
               return (
                 <div
@@ -204,124 +205,138 @@ export const CreateMarket = (props) => {
                 </div>
               </div>
             </div>
-            <div
-              style={{ textAlign: 'left' }}
-              className="userAssetHeadingContainer"
-            >
-              Fund Your Pool
-            </div>
-            <input
-              className="fundYourPoolContainer"
-              placeholder="Enter Amount"
-              value={amount}
-              type="number"
-              onChange={(e) => {
-                setAmount(e.target.value);
-              }}
-            />
-            <div
-              style={{ textAlign: 'left' }}
-              className="userAssetHeadingContainer"
-            >
-              Lot Starts On
-            </div>
+            <div className="detailsContainer">
+              <div
+                style={{ textAlign: 'left' }}
+                className="userAssetHeadingContainer1"
+              >
+                Fund Your Pool
+              </div>
+              <input
+                className="fundYourPoolContainer"
+                placeholder="Enter Amount"
+                value={amount}
+                type="number"
+                onChange={(e) => {
+                  setAmount(e.target.value);
+                }}
+              />
+              <div
+                style={{ textAlign: 'left' }}
+                className="userAssetHeadingContainer1"
+              >
+                Lot Starts On
+              </div>
 
-            <DatePicker
-              className="fundYourPoolContainer"
-              closeOnScroll={true}
-              selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
-              dateFormat="dd/MM/yyyy"
-              placeholderText="Select a date"
-              showYearDropdown
-              yearDropdownItemNumber={5}
-              scrollableYearDropdown
-              peekNextMonth
-              showMonthDropdown
-              dropdownMode="select"
-              todayButton="Today"
-            />
-            <div
-              style={{ textAlign: 'left' }}
-              className="userAssetHeadingContainer"
-            >
-              Lot Ends On
-            </div>
+              <DatePicker
+                className="fundYourPoolContainer"
+                closeOnScroll={true}
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Select a date"
+                showYearDropdown
+                yearDropdownItemNumber={5}
+                scrollableYearDropdown
+                peekNextMonth
+                showMonthDropdown
+                dropdownMode="select"
+                todayButton="Today"
+              />
+              <div
+                style={{ textAlign: 'left' }}
+                className="userAssetHeadingContainer1"
+              >
+                Lot Ends On
+              </div>
 
-            <DatePicker
-              selected={selectedDateEnd}
-              onChange={(e) => {
-                if (
-                  selectedDate &&
-                  e.valueOf() - selectedDate.valueOf() > 0 &&
-                  e instanceof Date
-                ) {
-                  setSelectedDateEnd(e);
-                } else if (selectedDate === null) {
-                  setPopup(true);
-                  setPopupText('First Enter the Lot Start Date');
-                  setTimeout(() => setPopup(false), 2000);
-                } else {
-                  setPopup(true);
-                  setPopupText('Enter Date greater than Start Date');
-                  setTimeout(() => setPopup(false), 2000);
-                }
-              }}
-              dateFormat="dd/MM/yyyy"
-              placeholderText="Select a date"
-              className="fundYourPoolContainer"
-              showYearDropdown
-              yearDropdownItemNumber={5}
-              scrollableYearDropdown
-              peekNextMonth
-              showMonthDropdown
-              dropdownMode="select"
-              todayButton="Today"
-            ></DatePicker>
-          </>
-        )}
-        <div className="buttonContainer">
-          {tabIndex !== 0 && (
-            <div
-              className="buttonContainerBack"
-              onClick={() => {
-                if (tabIndex > 0) {
-                  setTabIndex((prev) => prev - 1);
-                }
-              }}
-            >
-              Back
-            </div>
-          )}
-          {tabIndex !== 2 && (
-            <div
-              className="buttonContainerBack"
-              onClick={() => {
-                if (tabIndex < 2) {
-                  if (assetIndex !== -1) {
-                    setTabIndex((prev) => prev + 1);
-                    setAssetIndex(-1);
+              <DatePicker
+                selected={selectedDateEnd}
+                onChange={(e) => {
+                  if (
+                    selectedDate &&
+                    e.valueOf() - selectedDate.valueOf() > 0 &&
+                    e instanceof Date
+                  ) {
+                    setSelectedDateEnd(e);
+                  } else if (selectedDate === null) {
+                    setPopup(true);
+                    setPopupText('First Enter the Lot Start Date');
+                    setTimeout(() => setPopup(false), 2000);
                   } else {
                     setPopup(true);
-                    setPopupText('Select an Asset before going forward');
+                    setPopupText('Enter Date greater than Start Date');
                     setTimeout(() => setPopup(false), 2000);
                   }
-                }
-              }}
-            >
-              Next
+                }}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Select a date"
+                className="fundYourPoolContainer"
+                showYearDropdown
+                yearDropdownItemNumber={5}
+                scrollableYearDropdown
+                peekNextMonth
+                showMonthDropdown
+                dropdownMode="select"
+                todayButton="Today"
+              ></DatePicker>
             </div>
-          )}
-          {tabIndex === 2 && (
-            <div
-              className="buttonContainerBack"
-              onClick={() => {
-                handleCreate();
-              }}
-            >
-              Create a Lot
-            </div>
-          )}
+          </>
+        )}
+        <div className="endButtonContainer">
+          <div className="buttonContainer">
+            {tabIndex !== 0 && (
+              <div
+                className="buttonContainerBack"
+                style={{
+                  width: tabIndex !== 0 ? '11vw' : 'None',
+                  marginRight: '1.25vw',
+                }}
+                onClick={() => {
+                  if (tabIndex > 0) {
+                    setTabIndex((prev) => prev - 1);
+                  }
+                }}
+              >
+                Back
+              </div>
+            )}
+            {tabIndex !== 2 && (
+              <div
+                className="buttonContainerBack"
+                style={{
+                  width: tabIndex === 1 ? '11vw' : '26vw',
+                }}
+                onClick={() => {
+                  if (tabIndex < 2) {
+                    if (assetIndex !== -1) {
+                      setTabIndex((prev) => prev + 1);
+                      setAssetIndex(-1);
+                    } else {
+                      setPopup(true);
+                      setPopupText('Select an Asset before going forward');
+                      setTimeout(() => setPopup(false), 2000);
+                    }
+                  }
+                }}
+              >
+                Next
+              </div>
+            )}
+            {tabIndex === 2 && (
+              <div
+                className="buttonContainerBack"
+                style={{
+                  width: tabIndex === 2 ? '11vw' : 'None',
+                }}
+                onClick={() => {
+                  handleCreate();
+                }}
+              >
+                Create a Lot
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

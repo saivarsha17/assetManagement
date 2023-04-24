@@ -2,15 +2,14 @@
   .mainContainer {
     display: flex;
     flex-direction: column;
-    /* position: relative; */
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     height: 100%;
-    /* left: 129px;
-  top: 179px; */
+
     min-height: 100vh;
     overflow: hidden;
-
-    /* Dark/Background/Primary */
 
     background: #14172b;
   }
@@ -19,29 +18,21 @@
 
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    padding: 24px;
-    gap: 24px;
-    position: relative;
-    left: 129px;
-    top: 179px;
 
-    width: 598px;
-    height: 380px;
+    padding: 2.19vh 1.25vw;
+    gap: 2.19vh 1.25vw;
 
-    /* Dark/Background/Secondary */
+    width: 31.2vw;
+    height: 34.61vh;
 
     background: linear-gradient(
       180deg,
       rgba(98, 106, 136, 0.1) 0%,
       rgba(46, 49, 73, 0.1) 100%
     );
-    /* Dark/Greyscale/400 */
 
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 17px;
-
-    /* Inside auto layout */
+    border: 0.0521vh solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.5525vh;
 
     flex: none;
     order: 0;
@@ -49,23 +40,18 @@
   }
   .textContainer {
     box-sizing: border-box;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 
-    padding: 10px 16px;
-    /* gap: 6px; */
+    padding: 0.9132vh 0.8333vw;
+    gap: 0.5479vh 0.3125vw;
 
-    width: 116px;
-    /* height: 34px; */
-
-    /* Dark/Background/Primary */
+    height: 3.105vh;
 
     background: #14172b;
-    border-radius: 10px;
-
-    /* Inside auto layout */
+    border-radius: 0.9132vh;
 
     flex: none;
     order: 0;
@@ -73,27 +59,23 @@
     font-family: 'Bai Jamjuree';
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 1.28vh;
+    line-height: 1.64vh;
+
+    text-align: center;
+
     color: rgba(255, 255, 255, 0.9);
 
     opacity: 0.9;
   }
   .questionMarkContainer {
-    /* position: absolute; */
-    width: 15px;
-    height: 15px;
-    /* left: 10px;
-  top: 7px; */
+    width: 0.7813vw;
+    height: 1.3699vh;
   }
   .questionMainContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* position: fixed;
-  left: 140px;
-  top: 190px; */
-    /* border: 1.5px solid #56565a; */
   }
   .createLotButtonContainer {
     box-sizing: border-box;
@@ -102,13 +84,13 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* padding: 13px 24px; */
+    padding: 1.19vh 1.25vw;
 
-    width: 550px;
-    height: 30px;
+    width: 28.6458vw;
+    height: 2.7397vh;
 
     background: linear-gradient(175.25deg, #9e44ff 3.56%, #543eff 103.97%);
-    border-radius: 17px;
+    border-radius: 1.55vh;
 
     flex: none;
     order: 0;
@@ -118,8 +100,8 @@
     font-family: 'Tomorrow';
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1.64vh;
+    line-height: 2.01vh;
     letter-spacing: -0.025em;
     color: rgba(255, 255, 255, 0.9);
   }
@@ -127,11 +109,8 @@
     font-family: 'Tomorrow';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    /* or 150% */
-
-    /* Dark/Greyscale/200 */
+    font-size: 1.46vh;
+    line-height: 2.19vh;
 
     color: rgba(255, 255, 255, 0.7);
 
@@ -142,11 +121,15 @@
     flex-direction: row;
     justify-content: space-between;
 
-    margin: 10px;
+    margin: 0.91vh 0.52vw;
   }
   .imageContainer {
-    width: 92px;
-    height: 66.05px;
+    width: 4.79vw;
+    height: 6.04vh;
+  }
+  .loopContainer {
+    width: 3.05vw;
+    height: 7.67vh;
   }
 }
 @media screen and (max-width: 1350px) {

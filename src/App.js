@@ -4,7 +4,7 @@ import { CreateMarket } from './createMarket.js';
 import { useState } from 'react';
 
 function App() {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(true);
 
   return (
     <>
@@ -28,7 +28,11 @@ function App() {
             </div>
             <div className="imagesContainer">
               <img className="imageContainer" src={IMAGES.PEOPLE} alt="loop" />
-              <img alt="people" src={IMAGES.LOOP_MARK} />
+              <img
+                className="loopContainer"
+                alt="people"
+                src={IMAGES.LOOP_MARK}
+              />
               <img
                 className="imageContainer"
                 alt="people"
